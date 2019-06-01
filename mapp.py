@@ -13,6 +13,7 @@ class MappToDisplay():
         for line in self.lines:             # creating grid for indexation of each element of the game lab
             self.grid.append([c for c in line])
 
+
     def __repr__(self):
         self.mappRebuilded = [] #empty list        
         for i in self.grid: # joining elements in lines

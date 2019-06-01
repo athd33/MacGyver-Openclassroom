@@ -15,7 +15,8 @@ class Player():
             for index_y, y in enumerate(x):
                 if y == "X":
                     self.mapp.robot = [index_x, index_y]
-    
+        return self.mapp.robot
+        
     def __repr__(self):
         return self.mapp.robot
         

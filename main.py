@@ -10,4 +10,5 @@ print(mappOnline)
 macGyver = Player(mappOnline)
 
 
-print(macGyver.mapp.robot)
+print(macGyver.getPosition())
+print(mappOnline.robot)
