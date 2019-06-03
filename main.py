@@ -20,7 +20,9 @@ backgroundImage = pygame.image.load("background.jpg").convert() # convert method
 
 window.blit(backgroundImage, (0,0)) # adding the image on the window
 
-
+wall = pygame.image.load("wall.png")
+wall = pygame.transform.scale(wall, (50,50)) # rezise wall image to fit in mapp
+window.blit(wall, (20,20))
 
 
 mappOnline = MappToDisplay(initMapp()) # instanciation of object mappOnline witch is a MappToDisplay class object
@@ -31,7 +33,6 @@ macGyver = Player(mappOnline)
 
 while game:
     pygame.display.flip()
-    
     entry = input(">")
     entry = entry.upper()
     if entry not in entries:
