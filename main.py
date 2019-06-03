@@ -15,14 +15,12 @@ directions = ['N', 'S', 'E', 'O']
 pygame.init()  #initialyzing all pygame modules
 
 window = pygame.display.set_mode((500, 500)) # non-resizable
-
+pygame.display.set_caption('Escape-Game: MacGyver')
 backgroundImage = pygame.image.load("background.jpg").convert() # convert method to convert and display faster
 
 window.blit(backgroundImage, (0,0)) # adding the image on the window
 
-wall = pygame.image.load("wall.png")
-wall = pygame.transform.scale(wall, (50,50)) # rezise wall image to fit in mapp
-window.blit(wall, (20,20))
+
 
 
 mappOnline = MappToDisplay(initMapp()) # instanciation of object mappOnline witch is a MappToDisplay class object
@@ -33,6 +31,15 @@ macGyver = Player(mappOnline)
 
 while game:
     pygame.display.flip()
+    pygame.time.Clock().tick(30)
+    mappOnline.render_mapp(window)
+    if event in pygame.event.get():
+        if event.type == KEYDOWN and event.key == K_q:
+            exit()
+
+
+ingame = False
+while ingame:
     entry = input(">")
     entry = entry.upper()
     if entry not in entries:
