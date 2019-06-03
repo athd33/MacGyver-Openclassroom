@@ -28,8 +28,10 @@ print(mappOnline)
 
 macGyver = Player(mappOnline)
 
+
 while game:
     pygame.display.flip()
+    
     entry = input(">")
     entry = entry.upper()
     if entry not in entries:
