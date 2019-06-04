@@ -33,13 +33,11 @@ while game:
     pygame.display.flip()
     pygame.time.Clock().tick(30)
     mappOnline.render_mapp(window)
-    if event in pygame.event.get():
+    for event in pygame.event.get():
         if event.type == KEYDOWN and event.key == K_q:
-            exit()
-
-
-ingame = False
-while ingame:
+            print('stop')
+            game = False
+    """
     entry = input(">")
     entry = entry.upper()
     if entry not in entries:
@@ -52,3 +50,4 @@ while ingame:
     else:
         macGyver.moveMac(entry)
         print(mappOnline)   # renderend mapp by mappToDisoplay class
+    """

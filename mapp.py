@@ -28,21 +28,19 @@ class MappToDisplay():
         self.window = window
         sprit_size = 50
         self.line_number = 0
-        self.case_number = 0
-
+        cases = ["X", " ", "U"]
         wall = pygame.image.load("wall.png")
         wall = pygame.transform.scale(wall, (50,50)) # rezise wall image to fit in mapp
         
-        for line in self.lines:
-            self.line_number +=1
+        for line in self.grid:
+            self.case_number = 0 # return to O after a full line pass
             for element in line:
-                self.case_number +=1
-
                 position_x = (self.line_number * sprit_size)
                 position_y = (self.case_number * sprit_size)
-
                 if element == "O":
                     window.blit(wall, (position_x, position_y))
-                
+                self.case_number +=1 # adding 1 after each element pass
+            self.line_number +=1 # adding 1 after passing each element of a line
+     
 
         
