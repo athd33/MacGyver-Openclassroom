@@ -16,10 +16,7 @@ background_image = "./images/background.jpg"
 pygame.init()  #initialyzing all pygame modules
 
 window = pygame.display.set_mode((500, 500)) # non-resizable
-pygame.display.set_caption('Escape-Game: MacGyver')
-
-
-game_menu = pygame.font.SysFont("monospace", 15 )
+pygame.display.set_caption('Escape-Game: MacGyver') # window title
 
 backgroundImage = pygame.image.load(background_image).convert() # convert method to convert and display faster
 
@@ -31,8 +28,7 @@ window.blit(backgroundImage, (0,0)) # adding the image on the window
 mappOnline = MappToDisplay(initMapp()) # instanciation of object mappOnline witch is a MappToDisplay class object
 print(mappOnline)
 
-macGyver = Player(mappOnline)
-
+macGyver = Player(mappOnline) # instanciation of macGyver as a player class object
 
 while game:
     pygame.display.flip()

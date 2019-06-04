@@ -3,4 +3,4 @@ TD Jeu - "Aidez MacGyver à s'échapper"  avec le module Pygame
 Ce programme réalisé avec Python dans version 3.6.7
 
 
-[See the source code here...](https://github.com/athd33/MacGyver-Openclassroom)
+[Voir le code source...](https://github.com/athd33/MacGyver-Openclassroom)
