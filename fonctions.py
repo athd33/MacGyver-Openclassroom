@@ -1,5 +1,7 @@
-
 from mapp import MappToDisplay
+
+
+
 
 def initMapp():
     with open("mapp.txt", "r") as f:
@@ -10,3 +12,4 @@ def displayHelp():
     with open("README.md", "r") as f:
         text = f.read()
     return text
+

@@ -1,5 +1,6 @@
 
 import sys
+import time
 from mapp import *
 from player import *
 import pygame
@@ -9,14 +10,18 @@ from fonctions import initMapp, displayHelp
 game = True
 entries = ['Q', 'HELP']
 directions = ['N', 'S', 'E', 'O']
-
+background_image = "./images/background.jpg"
 
 
 pygame.init()  #initialyzing all pygame modules
 
 window = pygame.display.set_mode((500, 500)) # non-resizable
 pygame.display.set_caption('Escape-Game: MacGyver')
-backgroundImage = pygame.image.load("background.jpg").convert() # convert method to convert and display faster
+
+
+game_menu = pygame.font.SysFont("monospace", 15 )
+
+backgroundImage = pygame.image.load(background_image).convert() # convert method to convert and display faster
 
 window.blit(backgroundImage, (0,0)) # adding the image on the window
 
@@ -31,8 +36,8 @@ macGyver = Player(mappOnline)
 
 while game:
     pygame.display.flip()
-    pygame.time.Clock().tick(30)
-    mappOnline.render_mapp(window)
+    pygame.time.Clock().tick(30)    
+    mappOnline.render_mapp(window)  # method used tu display the mapp
     for event in pygame.event.get():
         if event.type == KEYDOWN and event.key == K_q:
             print('stop')
