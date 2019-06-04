@@ -6,5 +6,5 @@ O OO OOO O
 O O  O   O
 O    O OOO
 O O  O   O
-O    O   U
+OE   O   U
 OOOOOOOOOO

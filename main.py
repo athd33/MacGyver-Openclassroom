@@ -26,7 +26,6 @@ window.blit(backgroundImage, (0,0)) # adding the image on the window
 
 
 mappOnline = MappToDisplay(initMapp()) # instanciation of object mappOnline witch is a MappToDisplay class object
-print(mappOnline)
 
 macGyver = Player(mappOnline) # instanciation of macGyver as a player class object
 

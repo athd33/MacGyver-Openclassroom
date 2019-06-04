@@ -12,4 +12,3 @@ def displayHelp():
     with open("README.md", "r") as f:
         text = f.read()
     return text
-
