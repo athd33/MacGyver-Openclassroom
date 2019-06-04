@@ -19,6 +19,7 @@ class Player():
         """
         Method witch checks and defines the next position of Macgyver on the mapp
         """
+        
         Rx = self.mapp.robot[0]
         Ry = self.mapp.robot[1]
         robot = self.mapp.robot
