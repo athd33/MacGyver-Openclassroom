@@ -12,18 +12,16 @@ entries = ['Q', 'HELP']
 directions = ['N', 'S', 'E', 'O']
 background_image = "./images/background.jpg"
 
-
+os.environ['SDL_VIDEO_CENTERED'] = '1' # used to center the window in the os screen
 pygame.init()  #initialyzing all pygame modules
 
 window = pygame.display.set_mode((500, 500)) # non-resizable
 pygame.display.set_caption('Escape-Game: MacGyver') # window title
 
+
 backgroundImage = pygame.image.load(background_image).convert() # convert method to convert and display faster
 
 window.blit(backgroundImage, (0,0)) # adding the image on the window
-
-
-
 
 mappOnline = MappToDisplay(initMapp()) # instanciation of object mappOnline witch is a MappToDisplay class object
 
