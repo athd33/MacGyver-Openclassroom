@@ -34,7 +34,11 @@ class MappToDisplay():
                
                 if element == "X":
                     player_to_display = pygame.image.load(mac_image)
-                    window.blit(player_to_display, (position_x, position_y))               
+                    window.blit(player_to_display, (position_x, position_y)) 
+
+                if element == "U":
+                    keeper_to_display = pygame.image.load(keeper)
+                    window.blit(keeper_to_display, (position_x, position_y))                  
                
                 self.case_number +=1 # adding 1 after each element pass
             self.line_number +=1 # adding 1 after passing each element of a line
