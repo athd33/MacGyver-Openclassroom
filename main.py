@@ -35,6 +35,16 @@ while game:
         if event.type == KEYDOWN and event.key == K_q:
             print('stop')
             game = False
+        if event.type == KEYDOWN and event.key == K_e:
+            macGyver.moveMac("E")
+        if event.type == KEYDOWN and event.key == K_s:
+            macGyver.moveMac("S")
+
+    window.blit(backgroundImage, (0,0)) # adding the image on the window
+    mappOnline.render_mapp(window)  # method used tu display the mapp
+
+        
+
     """
     entry = input(">")
     entry = entry.upper()
