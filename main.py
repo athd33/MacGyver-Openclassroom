@@ -7,55 +7,67 @@ import pygame
 from pygame.locals import *
 from fonctions import initMapp, displayHelp
 
-game = True
+menu = True
+game = False
 entries = ['Q', 'HELP']
 directions = ['N', 'S', 'E', 'O']
 background_image = "./images/background.jpg"
+menuBackground = "./images/menumacgyver.png"
 
-os.environ['SDL_VIDEO_CENTERED'] = '1' # used to center the window in the os screen
-pygame.init()  #initialyzing all pygame modules
+os.environ['SDL_VIDEO_CENTERED'] = '1'  # center the window
 
-window = pygame.display.set_mode((500, 500)) # non-resizable
-pygame.display.set_caption('Escape-Game: MacGyver') # window title
+pygame.init()  # initialyzing all pygame modules
+
+window = pygame.display.set_mode((500, 500))  # non-resizable
+
+pygame.display.set_caption('Escape-Game: MacGyver')  # window title
+
+# convert to convert and display faster
+backgroundImage = pygame.image.load(background_image).convert()
+menuImage = pygame.image.load(menuBackground).convert()
+
+window.blit(window, (0, 0))  # adding the image on the window
+
+mappOnline = MappToDisplay(initMapp())  # instanciation of object mappOnline
+
+macGyver = Player(mappOnline)  # instanciation of macGyver as a player class
 
 
-backgroundImage = pygame.image.load(background_image).convert() # convert method to convert and display faster
-
-window.blit(backgroundImage, (0,0)) # adding the image on the window
-
-mappOnline = MappToDisplay(initMapp()) # instanciation of object mappOnline witch is a MappToDisplay class object
-
-macGyver = Player(mappOnline) # instanciation of macGyver as a player class object
-
-while game:
+while menu:  # first while used for menu display
+    window.blit(menuImage, (0, 80))  # adding the image on the window
     pygame.display.flip()
-    pygame.time.Clock().tick(30)    
-    mappOnline.render_mapp(window)  # method used tu display the mapp
     for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            menu = False
         if event.type == KEYDOWN and event.key == K_q:
             print('stop')
-            game = False
-        if event.type == KEYDOWN and event.key == K_e:
-            macGyver.moveMac("E")
-        if event.type == KEYDOWN and event.key == K_s:
-            macGyver.moveMac("S")
+            menu = False
+        if event.type == KEYDOWN and event.key == K_g:
+            print('stop')
+            menu = False
+            game = True
 
-    window.blit(backgroundImage, (0,0)) # adding the image on the window
-    mappOnline.render_mapp(window)  # method used tu display the mapp
+    while game:
+        pygame.display.flip()
+        pygame.time.Clock().tick(30)    
+        mappOnline.render_mapp(window)  # method used tu display the mapp
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game = False 
+            if event.type == KEYDOWN and event.key == K_UP:
+                macGyver.moveMac("N")
+            if event.type == KEYDOWN and event.key == K_q:
+                exit(0)
+            if event.type == KEYDOWN and event.key == K_DOWN:
+                macGyver.moveMac("S")
+            if event.type == KEYDOWN and event.key == K_LEFT:
+                macGyver.moveMac("O")
+            if event.type == KEYDOWN and event.key == K_RIGHT:
+                macGyver.moveMac("E")
+
+        window.blit(backgroundImage, (0, 0))  # adding the image on the window
+        mappOnline.render_mapp(window)  # method used tu display the mapp
 
         
 
-    """
-    entry = input(">")
-    entry = entry.upper()
-    if entry not in entries:
-        print("Invalid direction, try again")
-    if entry == "Q":
-        print("Exit game")
-        game = False
-    elif entry == "HELP":
-        displayHelp()
-    else:
-        macGyver.moveMac(entry)
-        print(mappOnline)   # renderend mapp by mappToDisoplay class
-    """
+            

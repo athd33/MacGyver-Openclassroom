@@ -1,3 +1,4 @@
+
 import mapp
 
 class Player():
@@ -57,4 +58,3 @@ class Player():
                 self.mapp.grid[Rx][Ry -1] = "X"
                 self.mapp.grid[Rx][Ry] = " "
                 robot[1] -= 1
-            
