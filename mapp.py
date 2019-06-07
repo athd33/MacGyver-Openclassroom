@@ -29,27 +29,31 @@ class MappToDisplay():
         for line in self.grid:
             self.case_number = 0  # return to O after a full line pass
             for element in line:
-                position_x = (self.case_number * sprit_size)
-                position_y = (self.line_number * sprit_size)
+                Px = (self.case_number * sprit_size)
+                Py = (self.line_number * sprit_size)
                
                 if element == "O":
-                    window.blit(wall, (position_x, position_y))      
+                    window.blit(wall, (Px, Py))      
                
-                if element == "X":
-                    mac_image = ImageToDisplay(mac_img)  # instanciation of ImageToDisplay                  
-                    window.blit(mac_image.resize(), (position_x, position_y))  # use classe method resize()
+                if element == "X":  # instanciation of ImageToDisplay
+                    mac_image = ImageToDisplay(mac_img)
+                    window.blit(mac_image.resize(), (Px, Py))  
 
                 if element == "U":
                     keeper_to_display = ImageToDisplay(keeper)
-                    window.blit(keeper_to_display.resize(), (position_x, position_y))           
+                    window.blit(keeper_to_display.resize(), (Px, Py))           
                 
                 if element == "E":
                     ether_to_display = ImageToDisplay(ether)
-                    window.blit(ether_to_display.resize(), (position_x, position_y))
+                    window.blit(ether_to_display.resize(), (Px, Py))
+                
+                if element == "T":
+                    ether_to_display = ImageToDisplay(ether)
+                    window.blit(ether_to_display.resize(), (Px, Py))
 
                 if element == "S":
                     needleToDisplay = ImageToDisplay(needle)
-                    window.blit(needleToDisplay.resize(), (position_x, position_y))
+                    window.blit(needleToDisplay.resize(), (Px, Py))
                 self.case_number += 1  # adding 1 after each element pass
             self.line_number += 1  # adding 1 after passing each element
 

@@ -32,6 +32,7 @@ macGyver = Player(mappOnline)  # instanciation of macGyver as a player class
 
 
 while menu:  # first while used for menu display
+    menuMusic.play()
     window.blit(menuImage, (0, 80))  # adding the image on the window
     window.blit(commandsGame, (50, 400))
     pygame.display.flip()
@@ -44,6 +45,7 @@ while menu:  # first while used for menu display
         if event.type == KEYDOWN and event.key == K_g:            
             print('stop')
             menu = False
+            menuMusic.stop()
             game = True
 
     while game:
