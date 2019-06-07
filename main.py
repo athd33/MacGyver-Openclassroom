@@ -11,8 +11,6 @@ menu = True
 game = False
 entries = ['Q', 'HELP']
 directions = ['N', 'S', 'E', 'O']
-background_image = "./images/background.jpg"
-menuBackground = "./images/menumacgyver.png"
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'  # center the window
 
@@ -35,6 +33,7 @@ macGyver = Player(mappOnline)  # instanciation of macGyver as a player class
 
 while menu:  # first while used for menu display
     window.blit(menuImage, (0, 80))  # adding the image on the window
+    window.blit(commandsGame, (50, 400))
     pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -42,7 +41,7 @@ while menu:  # first while used for menu display
         if event.type == KEYDOWN and event.key == K_q:
             print('stop')
             menu = False
-        if event.type == KEYDOWN and event.key == K_g:
+        if event.type == KEYDOWN and event.key == K_g:            
             print('stop')
             menu = False
             game = True
@@ -57,6 +56,9 @@ while menu:  # first while used for menu display
             if event.type == KEYDOWN and event.key == K_UP:
                 macGyver.moveMac("N")
             if event.type == KEYDOWN and event.key == K_q:
+                window.blit(endMessage, (150, 250))
+                pygame.display.flip()
+                pygame.time.wait(2000)
                 exit(0)
             if event.type == KEYDOWN and event.key == K_DOWN:
                 macGyver.moveMac("S")
