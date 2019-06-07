@@ -43,18 +43,18 @@ class Player():
             exit(0)
         else:
             if direction == "N":
-                self.mapp.grid[Rx -1][Ry] = "X"
+                self.mapp.grid[Rx - 1][Ry] = "X"
                 self.mapp.grid[Rx][Ry] = " "
                 robot[0] -= 1
             if direction == "S":
-                self.mapp.grid[Rx +1][Ry] = "X"
+                self.mapp.grid[Rx + 1][Ry] = "X"
                 self.mapp.grid[Rx][Ry] = " "
                 robot[0] += 1
             if direction == "E":
-                self.mapp.grid[Rx][Ry +1] = "X"
+                self.mapp.grid[Rx][Ry + 1] = "X"
                 self.mapp.grid[Rx][Ry] = " "
                 robot[1] += 1
             if direction == "O":
-                self.mapp.grid[Rx][Ry -1] = "X"
+                self.mapp.grid[Rx][Ry - 1] = "X"
                 self.mapp.grid[Rx][Ry] = " "
                 robot[1] -= 1

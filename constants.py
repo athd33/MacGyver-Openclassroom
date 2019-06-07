@@ -11,6 +11,7 @@ endFont = pygame.font.SysFont("arial", 50)
 
 pygame.mixer.init()
 menuMusic = pygame.mixer.Sound("./sounds/menuMusic.wav")
+#grabItemSound = pygame.mixer.Sound("./sounds/grabItem.wav")
 
 commandsGame = arial_fonts.render("Q for EXIT", True, white)
 endMessage = endFont.render("END GAME", True, black)
@@ -23,3 +24,4 @@ mac_img = "./images/MacGyver.png"
 keeper = "./images/Gardien.png"
 ether = "./images/ether.png"
 needle = "./images/seringue.png"
+tube = "./images/tube_plastique.png"

@@ -57,11 +57,14 @@ while menu:  # first while used for menu display
                 game = False 
             if event.type == KEYDOWN and event.key == K_UP:
                 macGyver.moveMac("N")
+                
             if event.type == KEYDOWN and event.key == K_q:
                 window.blit(endMessage, (150, 250))
                 pygame.display.flip()
                 pygame.time.wait(2000)
-                exit(0)
+                game = False
+                menu = True
+
             if event.type == KEYDOWN and event.key == K_DOWN:
                 macGyver.moveMac("S")
             if event.type == KEYDOWN and event.key == K_LEFT:

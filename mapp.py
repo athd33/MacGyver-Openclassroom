@@ -48,7 +48,7 @@ class MappToDisplay():
                     window.blit(ether_to_display.resize(), (Px, Py))
                 
                 if element == "T":
-                    ether_to_display = ImageToDisplay(ether)
+                    ether_to_display = ImageToDisplay(tube)
                     window.blit(ether_to_display.resize(), (Px, Py))
 
                 if element == "S":
