@@ -12,7 +12,7 @@ class MappToDisplay():
         self.grid = []  # self.grid is a list of of the elements on the mapp
         self.lines = self.content.split('\n')
         self.robot = None
-        
+
         for line in self.lines:  # creating grid for indexation
             self.grid.append([c for c in line])
 
@@ -47,7 +47,7 @@ class MappToDisplay():
                 if element == "T":
                     ether_to_display = ImageToDisplay(tube)
                     window.blit(ether_to_display.resize(), (Px, Py))
-                
+
                 if element == "N":
                     ether_to_display = ImageToDisplay(needle)
                     window.blit(ether_to_display.resize(), (Px, Py))
@@ -57,15 +57,13 @@ class MappToDisplay():
                     window.blit(needleToDisplay.resize(), (Px, Py))
                 self.case_number += 1  # adding 1 after each element pass
             self.line_number += 1  # adding 1 after passing each element
-            
 
 
-class ImageToDisplay: 
+class ImageToDisplay:
     """
     Class used to set the image for render
     """
-
-    def __init__(self, image): 
+    def __init__(self, image):
         """
         Function used to resize the images before render
         """
@@ -75,9 +73,7 @@ class ImageToDisplay:
         """
         Method used to resize the choosen image into 50/50 pixels size
         """
-
         self.name_to_display = pygame.image.load(self.image).convert_alpha()
         self.name_to_display = pygame.transform.scale(self.name_to_display, (50, 50))
 
         return self.name_to_display
-

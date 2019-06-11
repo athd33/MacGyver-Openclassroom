@@ -32,8 +32,8 @@ window.blit(window, (0, 0))  # adding the image on the window
 
 
 while menu:  # first while used for menu display
-    mappOnline = MappToDisplay(initMapp())  # instanciation of object mappOnline
-    macGyver = Player(mappOnline)  # instanciation of macGyver as a player class
+    mappOnline = MappToDisplay(initMapp())  # instanciation
+    macGyver = Player(mappOnline)  # instanciation
     menuMusic.play()
     window.blit(menuImage, (-50, 0))  # adding the image on the window
     window.blit(commandQuitGame, (50, 400))
@@ -51,18 +51,20 @@ while menu:  # first while used for menu display
 
     while game:
         pygame.display.flip()
-        pygame.time.Clock().tick(30)    
         mappOnline.render_mapp(window)  # method used tu display the mapp
-        # inGameMusic.play()
+        inGameMusic.play()
 
-        if macGyver.winGame:  # wining conditions all good
+        if macGyver.winGame:
             game = False
             inGameMusic.stop()
             victoryMusic.play()
             window.blit(winEndImage, (0, 0))
-            window.blit(winMessage, (130, 0))
+            window.blit(winMessage, (200, 0))
             pygame.display.flip()
-            pygame.time.wait(19000)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    exit(0)
+            pygame.time.wait(17000)
             menu = True
 
         if macGyver.looseGame:  # wining conditions all good
@@ -80,7 +82,7 @@ while menu:  # first while used for menu display
             if event.type == KEYDOWN and event.key == K_UP:
                 macGyver.moveMac("N")
             if event.type == KEYDOWN and event.key == K_q:
-
+                inGameMusic.stop()
                 pygame.display.flip()
                 game = False
                 menu = True
@@ -95,6 +97,4 @@ while menu:  # first while used for menu display
         window.blit(backgroundImage, (0, 0))  # adding the image on the window
         mappOnline.render_mapp(window)  # method used tu display the mapp
 
-        
-
-            
+          

@@ -1,4 +1,3 @@
-from mapp import MappToDisplay
 
 
 def initMapp():

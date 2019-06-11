@@ -1,6 +1,7 @@
 
 import mapp
 
+
 class Player():
     """
     Class used for the players moves on the mapp
@@ -56,9 +57,6 @@ class Player():
             self.looseGame = True
 
         return True
-
-
-
 
     def moveMac(self, direction):
         """
