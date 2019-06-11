@@ -1,7 +1,7 @@
 X OOOOOOOO
 O OS     O
 O OOO  O O
-O      O O
+O  N   O O
 O OOOOOO O
 O O  OT  O
 O    OOO O

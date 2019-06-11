@@ -8,40 +8,61 @@ class Player():
     def __init__(self, mapp):
         self.mapp = mapp
         self.mapp.robot = self
+        self.win = 0    # numbers of items collected
         grid = self.mapp.grid
 
         for index_x, x in enumerate(grid):
             for index_y, y in enumerate(x):
                 if y == "X":
                     self.mapp.robot = [index_x, index_y]
-  
+
+    def check_next_case(self, direction):
+        """Defines the next position of the player on the mapp"""
+
+        self.direction = direction
+        Rx = self.mapp.robot[0]
+        Ry = self.mapp.robot[1]
+        grid = self.mapp.grid
+
+        if direction == "O":
+            return grid[Rx][Ry - 1]
+        elif direction == "E":
+            return grid[Rx][Ry + 1]
+        elif direction == "S":
+            return grid[Rx + 1][Ry]
+        elif direction == "N":
+            return grid[Rx - 1][Ry]
+
+    def check_event(self, direction):
+        """Check if the next case is an event """
+        entries = ["S", "T", "N", "E"]
+        self.direction = direction
+        nextCase = self.check_next_case(direction)
+        if nextCase == "O":
+            return False
+        elif nextCase == "U":
+            print('BRAVO, vous avez trouvé la sortie!!!')
+            exit(0)
+        elif nextCase in entries:
+            self.win += 1
+            print(self.win)
+            pass
+        return True
+
+
 
     def moveMac(self, direction):
         """
-        Method witch checks and defines the next position of Macgyver on the mapp
+        Method witch checks and defines the next position of Macgyver
+        on the mapp
         """
-        
         Rx = self.mapp.robot[0]
         Ry = self.mapp.robot[1]
         robot = self.mapp.robot
         grid = self.mapp.grid
-        nextCase = None
-        
-        if direction == "O":
-            nextCase = grid[Rx][Ry -1]
-        elif direction == "E":
-            nextCase = grid[Rx][Ry +1]
-        elif direction == "S":
-            nextCase = grid[Rx +1][Ry]
-        elif direction == "N":
-            nextCase = grid[Rx -1][Ry]
+        nextCase = self.check_next_case(direction)
 
-        if nextCase == "O":
-            pass
-        elif nextCase == "U":
-            print('BRAVO, vous avez trouvé la sortie!!!')
-            exit(0)
-        else:
+        if self.check_event(direction):
             if direction == "N":
                 self.mapp.grid[Rx - 1][Ry] = "X"
                 self.mapp.grid[Rx][Ry] = " "
