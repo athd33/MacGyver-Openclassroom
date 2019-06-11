@@ -10,6 +10,9 @@ class Player():
         self.mapp.robot = self
         self.win = 0    # numbers of items collected
         grid = self.mapp.grid
+        self.winGame = False
+        self.looseGame = False
+        self.sound = False
 
         for index_x, x in enumerate(grid):
             for index_y, y in enumerate(x):
@@ -38,16 +41,22 @@ class Player():
         entries = ["S", "T", "N", "E"]
         self.direction = direction
         nextCase = self.check_next_case(direction)
+
         if nextCase == "O":
             return False
-        elif nextCase == "U":
-            print('BRAVO, vous avez trouvé la sortie!!!')
-            exit(0)
+
         elif nextCase in entries:
+            self.sound = True
             self.win += 1
-            print(self.win)
-            pass
+
+        if self.win == 4 and nextCase == "U":
+            self.winGame = True
+
+        if self.win != 4 and nextCase == "U":
+            self.looseGame = True
+
         return True
+
 
 
 

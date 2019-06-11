@@ -24,15 +24,16 @@ pygame.display.set_caption('Escape-Game: MacGyver')  # window title
 
 backgroundImage = pygame.image.load(background_image).convert()
 menuImage = pygame.image.load(menuBackground).convert()
+winEndImage = pygame.image.load(winImageToDisplay).convert()
+loseImage = pygame.image.load(gameOverImage).convert()
+
 
 window.blit(window, (0, 0))  # adding the image on the window
 
-mappOnline = MappToDisplay(initMapp())  # instanciation of object mappOnline
-
-macGyver = Player(mappOnline)  # instanciation of macGyver as a player class
-print(mappOnline)
 
 while menu:  # first while used for menu display
+    mappOnline = MappToDisplay(initMapp())  # instanciation of object mappOnline
+    macGyver = Player(mappOnline)  # instanciation of macGyver as a player class
     menuMusic.play()
     window.blit(menuImage, (-50, 0))  # adding the image on the window
     window.blit(commandQuitGame, (50, 400))
@@ -52,15 +53,35 @@ while menu:  # first while used for menu display
         pygame.display.flip()
         pygame.time.Clock().tick(30)    
         mappOnline.render_mapp(window)  # method used tu display the mapp
+        # inGameMusic.play()
+
+        if macGyver.winGame:  # wining conditions all good
+            game = False
+            inGameMusic.stop()
+            victoryMusic.play()
+            window.blit(winEndImage, (0, 0))
+            window.blit(winMessage, (130, 0))
+            pygame.display.flip()
+            pygame.time.wait(19000)
+            menu = True
+
+        if macGyver.looseGame:  # wining conditions all good
+            game = False
+            inGameMusic.stop()
+            gameOverMusic.play()
+            window.blit(loseImage, (-80, 0))
+            pygame.display.flip()
+            pygame.time.wait(7000)
+            menu = True
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                game = False 
+                game = False
             if event.type == KEYDOWN and event.key == K_UP:
                 macGyver.moveMac("N")
             if event.type == KEYDOWN and event.key == K_q:
-                window.blit(endMessage, (150, 250))
+
                 pygame.display.flip()
-                pygame.time.wait(2000)
                 game = False
                 menu = True
 
