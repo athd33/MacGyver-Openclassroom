@@ -73,7 +73,8 @@ class ImageToDisplay:
         """
         Method used to resize the choosen image into 50/50 pixels size
         """
-        self.name_to_display = pygame.image.load(self.image).convert_alpha()
+        self.name_to_display = pygame.image.load(self.image)
+        self.name_to_display.set_colorkey((255, 255, 255))
         self.name_to_display = pygame.transform.scale(self.name_to_display, (50, 50))
 
         return self.name_to_display
