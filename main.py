@@ -7,16 +7,12 @@ import pygame
 from pygame.locals import *
 from fonctions import initMapp, displayHelp
 
-menu = True
-game = False
-sound = True
-entries = ['Q', 'HELP']
-directions = ['N', 'S', 'E', 'O']
+
 os.environ['SDL_VIDEO_CENTERED'] = '1'  # center the window
 
 pygame.init()  # initialyzing all pygame modules
 
-window = pygame.display.set_mode((500, 500))  # non-resizable
+window = pygame.display.set_mode((750, 750))  # non-resizable
 
 pygame.display.set_caption('Escape-Game: MacGyver')  # window title
 
@@ -27,38 +23,45 @@ menuImage = pygame.image.load(menuBackground).convert()
 winEndImage = pygame.image.load(winImageToDisplay).convert()
 loseImage = pygame.image.load(gameOverImage).convert()
 
+window.blit(window, (0, 0))  # adding the image on the windowq
 
-window.blit(window, (0, 0))  # adding the image on the window
+mappOnline = MappToDisplay(initMapp())  # instanciation
+macGyver = Player(mappOnline)  # instanciation
 
 
 while menu:  # first while used for menu display
-    mappOnline = MappToDisplay(initMapp())  # instanciation
-    macGyver = Player(mappOnline)  # instanciation
+   
     menuMusic.play()
-    window.blit(menuImage, (-50, 0))  # adding the image on the window
-    window.blit(commandQuitGame, (50, 400))
-    window.blit(commandEnterGame, (50, 430))
+    window.blit(menuImage, (100, 50))  # adding the image on the window
+    window.blit(commandEnterGame, (50, 600))
+    window.blit(commandQuitGame, (50, 630))
     pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             menu = False
         if event.type == KEYDOWN and event.key == K_q:
             menu = False
-        if event.type == KEYDOWN and event.key == K_RETURN:            
+        if event.type == KEYDOWN and event.key == K_RETURN:
             menu = False
             menuMusic.stop()
             game = True
 
     while game:
-        pygame.display.flip()
         mappOnline.render_mapp(window)  # method used tu display the mapp
+
+        loaderToShow = Loader(macGyver.win)            
+        loaderToDisplay = pygame.image.load(loaderToShow.displayLoader()).convert_alpha()
+        loaderToDisplay = pygame.transform.scale(loaderToDisplay, (130, 130))
+        window.blit(loaderToDisplay, (320, -30))
+
         inGameMusic.play()
+        pygame.display.flip()
 
         if macGyver.winGame:
             game = False
             inGameMusic.stop()
             victoryMusic.play()
-            window.blit(winEndImage, (0, 0))
+            window.blit(winEndImage, (100, 100))
             window.blit(winMessage, (200, 0))
             pygame.display.flip()
             for event in pygame.event.get():
@@ -75,8 +78,11 @@ while menu:  # first while used for menu display
             pygame.display.flip()
             pygame.time.wait(7000)
             menu = True
-
+        
         for event in pygame.event.get():
+            
+
+            pygame.display.flip()
             if event.type == pygame.QUIT:
                 game = False
             if event.type == KEYDOWN and event.key == K_UP:
@@ -96,5 +102,3 @@ while menu:  # first while used for menu display
 
         window.blit(backgroundImage, (0, 0))  # adding the image on the window
         mappOnline.render_mapp(window)  # method used tu display the mapp
-
-          

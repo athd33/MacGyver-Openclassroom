@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from constants import *
+import constants
 
 
 class MappToDisplay():
@@ -78,3 +79,23 @@ class ImageToDisplay:
         self.name_to_display = pygame.transform.scale(self.name_to_display, (50, 50))
 
         return self.name_to_display
+
+
+class Loader:
+    """Class used to display the loader
+    self.points is a parameter from the player class instanced"""
+    def __init__(self, points):
+        self.points = points
+
+    def displayLoader(self):
+        """Method used to define witch loader, depends on points"""
+        if self.points == 0:
+            return firstLoader
+        if self.points == 1:
+            return secondLoader
+        if self.points == 2:
+            return thirdLoader
+        if self.points == 3:
+            return fourthLoader
+        if self.points == 4:
+            return finalLoader

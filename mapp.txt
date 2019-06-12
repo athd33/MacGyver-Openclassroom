@@ -1,10 +1,15 @@
-X OOOOOOOO
-O OS     O
-O OOO  O O
-O  N   O O
-O OOOOOO O
-O O  OT  O
-O    OOO O
-OOO      O
-OE   O   U
-OOOOOOOOOO
+X OOOOOOOOOOOOO
+O OS          O
+O OOO  OOO O  O
+O  N   O   O  O
+O OOOOOO   O  O
+O O  O     O  O
+O    OOO O O  O
+OOO        O  O
+OE   OOOOOO   O
+O           OOO
+OOOOO  OOO    O
+O       O     O
+O  OOOOOO  OO O
+OT            U
+OOOOOOOOOOOOOOO
