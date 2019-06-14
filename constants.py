@@ -12,6 +12,7 @@ pygame.font.init()
 white = (255, 255, 255)
 black = (0, 0, 0)
 sprite_size = 50
+clock = pygame.time.Clock()
 arial_fonts = pygame.font.SysFont("arial", 20)
 endFont = pygame.font.SysFont("arial", 50)
 winFont = pygame.font.SysFont("arial", 30)

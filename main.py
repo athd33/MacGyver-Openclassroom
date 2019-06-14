@@ -24,7 +24,7 @@ winEndImage = pygame.image.load(winImageToDisplay).convert()
 loseImage = pygame.image.load(gameOverImage).convert()
 
 window.blit(window, (0, 0))  # adding the image on the windowq
-
+clock.tick(5)
 
 mappOnline = MappToDisplay(initMapp(), window)  # instanciation
 macGyver = Player(mappOnline)  # instanciation
@@ -33,6 +33,7 @@ objectsToDisplay.getFreeCases()
 objectsToDisplay.displayObjects()
 
 while menu:  # first while used for menu display
+    pygame.time.Clock().tick(5)
 
     window.blit(menuImage, (100, 50))  # adding the image on the window
     window.blit(commandEnterGame, (180, 400))
@@ -56,7 +57,7 @@ while menu:  # first while used for menu display
             game = True
 
     while game:     # second while used for the in-game display
-
+        pygame.time.Clock().tick(20)
         mappOnline.render_mapp(window)  # method used tu display the mapp
         loaderToShow = Loader(macGyver.win)            
         loaderToDisplay = pygame.image.load(loaderToShow.displayLoader()).convert_alpha()
