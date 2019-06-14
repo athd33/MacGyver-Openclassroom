@@ -8,10 +8,10 @@ game = False
 sound = True
 entries = ['Q', 'HELP']
 directions = ['N', 'S', 'E', 'O']
-
 pygame.font.init()
 white = (255, 255, 255)
 black = (0, 0, 0)
+sprite_size = 50
 arial_fonts = pygame.font.SysFont("arial", 20)
 endFont = pygame.font.SysFont("arial", 50)
 winFont = pygame.font.SysFont("arial", 30)
@@ -25,10 +25,11 @@ gameOverMusic = pygame.mixer.Sound("./sounds/gameOver.wav")
 
 commandQuitGame = arial_fonts.render("Press 'Q' for EXIT", True, white)
 commandEnterGame = arial_fonts.render("Press 'ENTER' to START", True, white)
-commandMuteSound = arial_fonts.render("'S' turn off the music", True, white)
+desactivateSound = arial_fonts.render("'M' turn off the music", True, white)
+activateSound = arial_fonts.render("'S' turn off the music", True, white)
+
 
 endMessage = endFont.render("END GAME", True, black)
-winMessage = winFont.render("ESCAPED!!!", True, white)
 
 background_image = "./images/background.jpg"
 menuBackground = "./images/macGyverWallpaper.png"

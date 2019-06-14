@@ -1,5 +1,5 @@
 
-import mapp
+from mapp import *
 from constants import *
 import pygame
 from pygame.locals import *
@@ -42,7 +42,7 @@ class Player():
 
     def check_event(self, direction):
         """Check if the next case is an event """
-        entries = ["S", "T", "N", "E"]
+        entries = ["S", "T", "A", "E"]
         self.direction = direction
         nextCase = self.check_next_case(direction)
 

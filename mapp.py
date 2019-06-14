@@ -1,18 +1,18 @@
 import pygame
 from pygame.locals import *
 from constants import *
-import constants
-
+import random
 
 class MappToDisplay():
     """
     Class used to build a indexation of all elements on the mapp
     """
-    def __init__(self, content):
+    def __init__(self, content, window):
         self.content = content
         self.grid = []  # self.grid is a list of of the elements on the mapp
         self.lines = self.content.split('\n')
         self.robot = None
+        self.item = None
 
         for line in self.lines:  # creating grid for indexation
             self.grid.append([c for c in line])
@@ -21,9 +21,10 @@ class MappToDisplay():
         self.window = window
         sprit_size = 50
         self.line_number = 0
-        cases = ["X", " ", "U"]
         wall = pygame.image.load(wall_image)
         wall = pygame.transform.scale(wall, (50, 50))  # rezise wall sprites
+        self.toShuffle = []
+
         for line in self.grid:
             self.case_number = 0  # return to O after a full line pass
             for element in line:
@@ -36,26 +37,23 @@ class MappToDisplay():
                 if element == "X":  # instanciation of ImageToDisplay
                     mac_image = ImageToDisplay(mac_img)
                     window.blit(mac_image.resize(), (Px, Py))
-
                 if element == "U":
                     keeper_to_display = ImageToDisplay(keeper)
                     window.blit(keeper_to_display.resize(), (Px, Py))
-
+                if element == "T":
+                    tube_to_display = ImageToDisplay(tube)
+                    window.blit(tube_to_display.resize(), (Px, Py))
                 if element == "E":
                     ether_to_display = ImageToDisplay(ether)
                     window.blit(ether_to_display.resize(), (Px, Py))
-
-                if element == "T":
-                    ether_to_display = ImageToDisplay(tube)
-                    window.blit(ether_to_display.resize(), (Px, Py))
-
-                if element == "N":
-                    ether_to_display = ImageToDisplay(needle)
-                    window.blit(ether_to_display.resize(), (Px, Py))
-
+                if element == "A":
+                    needle_to_display = ImageToDisplay(needle)
+                    window.blit(needle_to_display.resize(), (Px, Py))
                 if element == "S":
-                    needleToDisplay = ImageToDisplay(syringe)
-                    window.blit(needleToDisplay.resize(), (Px, Py))
+                    syringe_to_display = ImageToDisplay(syringe)
+                    window.blit(syringe_to_display.resize(), (Px, Py))
+
+
                 self.case_number += 1  # adding 1 after each element pass
             self.line_number += 1  # adding 1 after passing each element
 

@@ -6,7 +6,7 @@ from player import *
 import pygame
 from pygame.locals import *
 from fonctions import initMapp, displayHelp
-
+from items import ObjectItems
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'  # center the window
 
@@ -25,74 +25,87 @@ loseImage = pygame.image.load(gameOverImage).convert()
 
 window.blit(window, (0, 0))  # adding the image on the windowq
 
-mappOnline = MappToDisplay(initMapp())  # instanciation
-macGyver = Player(mappOnline)  # instanciation
 
+mappOnline = MappToDisplay(initMapp(), window)  # instanciation
+macGyver = Player(mappOnline)  # instanciation
+objectsToDisplay = ObjectItems(mappOnline)
+objectsToDisplay.getFreeCases()
+objectsToDisplay.displayObjects()
 
 while menu:  # first while used for menu display
-   
-    menuMusic.play()
+
     window.blit(menuImage, (100, 50))  # adding the image on the window
-    window.blit(commandEnterGame, (50, 600))
-    window.blit(commandQuitGame, (50, 630))
+    window.blit(commandEnterGame, (180, 400))
+    window.blit(commandQuitGame, (180, 430))
+    window.blit(activateSound, (180, 460))
+    window.blit(desactivateSound, (180, 490))
     pygame.display.flip()
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             menu = False
         if event.type == KEYDOWN and event.key == K_q:
             menu = False
-        if event.type == KEYDOWN and event.key == K_RETURN:
+        if event.type == KEYDOWN and event.key == K_s:
+            menuMusic.play()
+        if event.type == KEYDOWN and event.key == K_m:
+            menuMusic.stop()
+        if event.type == KEYDOWN and event.key == K_RETURN:            
             menu = False
             menuMusic.stop()
             game = True
 
-    while game:
-        mappOnline.render_mapp(window)  # method used tu display the mapp
+    while game:     # second while used for the in-game display
 
+        mappOnline.render_mapp(window)  # method used tu display the mapp
         loaderToShow = Loader(macGyver.win)            
         loaderToDisplay = pygame.image.load(loaderToShow.displayLoader()).convert_alpha()
         loaderToDisplay = pygame.transform.scale(loaderToDisplay, (130, 130))
         window.blit(loaderToDisplay, (320, -30))
-
-        inGameMusic.play()
         pygame.display.flip()
-
-        if macGyver.winGame:
+        while macGyver.winGame:
             game = False
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    exit()
+                if event.type == KEYDOWN and event.key == K_q:
+                    macGyver.winGame = False
+                    menu = True
+            pygame.display.flip()
             inGameMusic.stop()
             victoryMusic.play()
             window.blit(winEndImage, (100, 100))
-            window.blit(winMessage, (200, 0))
             pygame.display.flip()
+            menu = True
+
+        while macGyver.looseGame:  # wining conditions all good
+            game = False
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    exit(0)
-            pygame.time.wait(17000)
-            menu = True
-
-        if macGyver.looseGame:  # wining conditions all good
-            game = False
+                    exit()
+                if event.type == KEYDOWN and event.key == K_q:
+                    macGyver.looseGame = False
+                    menu = True
             inGameMusic.stop()
             gameOverMusic.play()
-            window.blit(loseImage, (-80, 0))
+            window.blit(loseImage, (-80, 0))            
             pygame.display.flip()
-            pygame.time.wait(7000)
             menu = True
-        
+    
         for event in pygame.event.get():
-            
-
-            pygame.display.flip()
             if event.type == pygame.QUIT:
-                game = False
-            if event.type == KEYDOWN and event.key == K_UP:
-                macGyver.moveMac("N")
+                exit()
             if event.type == KEYDOWN and event.key == K_q:
                 inGameMusic.stop()
                 pygame.display.flip()
                 game = False
                 menu = True
-
+            if event.type == KEYDOWN and event.key == K_s:
+                inGameMusic.play()
+            if event.type == KEYDOWN and event.key == K_m:
+                inGameMusic.stop()
+            if event.type == KEYDOWN and event.key == K_UP:
+                macGyver.moveMac("N")
             if event.type == KEYDOWN and event.key == K_DOWN:
                 macGyver.moveMac("S")
             if event.type == KEYDOWN and event.key == K_LEFT:
