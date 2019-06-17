@@ -69,8 +69,6 @@ class Player():
         Rx = self.mapp.robot[0]
         Ry = self.mapp.robot[1]
         robot = self.mapp.robot
-        grid = self.mapp.grid
-        nextCase = self.check_next_case(direction)
 
         if self.check_event(direction):
             if direction == "N":

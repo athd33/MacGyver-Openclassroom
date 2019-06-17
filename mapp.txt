@@ -2,12 +2,12 @@ X OOOOOOOOOOOOO
 O O           O
 O OOO  OOO O  O
 O      O   O  O
-O OOOOOO   O TO
+O OOOOOO   O  O
 O O  O     O  O
 O    OOO O O  O
-OOO        O EO
-O    OOOOOO  AO
-O         S OOO
+OOO        O  O
+O    OOOOOO   O
+O           OOO
 OOOOO  OOO    O
 O       O     O
 O  OOOOOO  OO O
