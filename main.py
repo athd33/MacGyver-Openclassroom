@@ -16,20 +16,19 @@ window = pygame.display.set_mode((750, 750))  # non-resizable
 
 pygame.display.set_caption('Escape-Game: MacGyver')  # window title
 
-# convert to convert and display faster
-
+            ###### loadings ##########
 backgroundImage = pygame.image.load(background_image).convert()
 menuImage = pygame.image.load(menuBackground).convert()
 winEndImage = pygame.image.load(winImageToDisplay).convert()
 loseImage = pygame.image.load(gameOverImage).convert()
 
-window.blit(window, (0, 0))  # adding the image on the windowq
-clock.tick(5)
+window.blit(window, (0, 0))  # adding the image on the window
+clock.tick(5) #refresh limit 5/sec
 
 mappOnline = MappToDisplay(initMapp(), window)  # instanciation
 macGyver = Player(mappOnline)  # instanciation
 
-objects = False
+objects = False # no objects displayed
 
 
 while menu:  # first while used for menu display
@@ -75,7 +74,9 @@ while menu:  # first while used for menu display
         pygame.display.flip()
 
         while macGyver.winGame:
+
             game = False
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit()
@@ -83,17 +84,19 @@ while menu:  # first while used for menu display
                     macGyver.winGame = False
                     objects = False
                     menu = True
+
             pygame.display.flip()
             inGameMusic.stop()
             victoryMusic.play()
             window.blit(winEndImage, (100, 100))
             window.blit(commandQuitGame, (150, 550))
-
             pygame.display.flip()
             menu = True
 
         while macGyver.looseGame:  # wining conditions all good
+
             game = False
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit()
@@ -101,6 +104,7 @@ while menu:  # first while used for menu display
                     macGyver.looseGame = False
                     objects = False
                     menu = True
+                    
             inGameMusic.stop()
             window.blit(loseImage, (0, 150))            
             window.blit(commandQuitGame, (150, 550))

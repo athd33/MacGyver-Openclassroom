@@ -18,6 +18,7 @@ class MappToDisplay():
             self.grid.append([c for c in line])
 
     def render_mapp(self, window):
+        """Method witch uses Pygame to render the images from the text file"""
         self.window = window
         sprit_size = 50
         self.line_number = 0

@@ -18,7 +18,7 @@ class Player():
         self.looseGame = False
         self.sound = False
 
-        for index_x, x in enumerate(grid):
+        for index_x, x in enumerate(grid): # used to get the player position
             for index_y, y in enumerate(x):
                 if y == "X":
                     self.mapp.robot = [index_x, index_y]
@@ -42,7 +42,7 @@ class Player():
 
     def check_event(self, direction):
         """Check if the next case is an event """
-        entries = ["S", "T", "A", "E"]
+        entries = ["S", "T", "A", "E"] # objects names
         self.direction = direction
         nextCase = self.check_next_case(direction)
 
