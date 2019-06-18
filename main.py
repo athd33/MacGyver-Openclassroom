@@ -67,7 +67,7 @@ while menu:  # first while used for menu display
         pygame.time.Clock().tick(20)
         mappOnline.render_mapp(window)  # method used tu display the mapp
         loaderToShow = Loader(macGyver.win)
-        loaderToDisplay = pygame.image.load(loaderToShow.displayLoader()).convert()
+        loaderToDisplay = pygame.image.load(loaderToShow.displayLoader()).convert_alpha()
         loaderToDisplay = pygame.transform.scale(loaderToDisplay, (130, 130))
         window.blit(loaderToDisplay, (320, -30))
         pygame.display.flip()
@@ -75,15 +75,6 @@ while menu:  # first while used for menu display
         while macGyver.winGame:
 
             game = False
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    exit()
-                if event.type == KEYDOWN and event.key == K_q:
-                    macGyver.winGame = False
-                    objects = False
-                    menu = True
-
             pygame.display.flip()
             inGameMusic.stop()
             victoryMusic.play()
@@ -91,6 +82,17 @@ while menu:  # first while used for menu display
             window.blit(commandQuitGame, (150, 550))
             pygame.display.flip()
             menu = True
+            
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    exit()
+                if event.type == KEYDOWN and event.key == K_q:
+                    victoryMusic.stop()
+                    macGyver.winGame = False
+                    objects = False
+                    menu = True
+
+
 
         while macGyver.looseGame:  # wining conditions all good
 
