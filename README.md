@@ -1,6 +1,5 @@
 # MacGyver
 TD Jeu - "Aidez MacGyver à s'échapper"  avec le module Pygame
-Ce programme réalisé avec Python dans version 3.6.7
 
 
 Ce projet a été réalisé avec le langage Python (version 3.7) et le module Pygame depuis un environnement virtuel installé avec le gestionnaire de paquets PIP (package installer for python).

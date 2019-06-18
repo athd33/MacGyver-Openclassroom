@@ -16,13 +16,13 @@ class ObjectItems():
     def getFreeCases(self):
         """Method used to get all the free cases in the mapp"""
 
-        self.freeCases = []        
+        self.freeCases = []
         for index_x, x in enumerate(self.mapp.grid):
             for index_y, y in enumerate(x):
                 if y == " ":
 
                     self.freeCases.append([index_x, index_y])
-        self.new = random.choice(self.freeCases)        
+        self.new = random.choice(self.freeCases)
         return self.new
 
     def setObjectsPositions(self):
@@ -35,4 +35,3 @@ class ObjectItems():
             Nx = newPos[0]
             Ny = newPos[1]
             self.mapp.grid[Nx][Ny] = i
-

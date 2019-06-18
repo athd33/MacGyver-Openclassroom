@@ -3,6 +3,7 @@ from pygame.locals import *
 from constants import *
 import random
 
+
 class MappToDisplay():
     """
     Class used to build a indexation of all elements on the mapp
@@ -53,7 +54,6 @@ class MappToDisplay():
                 if element == "S":
                     syringe_to_display = ImageToDisplay(syringe)
                     window.blit(syringe_to_display.resize(), (Px, Py))
-
 
                 self.case_number += 1  # adding 1 after each element pass
             self.line_number += 1  # adding 1 after passing each element

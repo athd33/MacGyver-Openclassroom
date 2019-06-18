@@ -2,7 +2,7 @@
 
 def initMapp():
     with open("mapp.txt", "r") as f:
-        content = f.read()                
+        content = f.read()
     return content
 
 
