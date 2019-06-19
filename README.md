@@ -1,5 +1,7 @@
-**Introduction:**
+                            
 
+**# MAC-GYVER: THE ESCAPE GAME**
+**Introduction :**
 This project is a 2D labyrinth game realised with Python3.7 and le Pygame module in his version 1.9.
 
 In this game, you are [MacGyver](https://en.wikipedia.org/wiki/MacGyver) (the tv-show hero). Your trapped in a labyrinth, and your mission (if you accept it) is to escape 
