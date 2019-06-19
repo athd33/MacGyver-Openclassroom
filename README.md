@@ -33,13 +33,18 @@ This have been made with python 3.6 and pygame 1.9.6
 
     cd MacGyver-Openclassroom
 
-    3) > Install the dependencies:
-    
-    pip3 install -r requirement.txt
-    
-    4) > Play:
+    3) > Run the command to build de executable :
 
-    python3 main.py
+    python3 ./setup.py build
+
+    4) Move in the created folders :
+
+    cd build/exe.linux-x86_64-3.6/
+
+    5) Run the game :
+
+    ./main
+
 
 
 **Code composition:**
