@@ -45,7 +45,7 @@ This have been made with python 3.6 and pygame 1.9.6
 
         ./main
 
-    6) Have fun  :video_game: !
+    6) Have fun !
 
 
 
