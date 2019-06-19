@@ -1,35 +1,69 @@
-# MacGyver
-TD Jeu - "Aidez MacGyver à s'échapper"  avec le module Pygame
+Introduction:
+
+This project is a 2D labyrinth game realised with Python3.7 and le Pygame module in his version 1.9.
+
+In this game, you are [MacGyver](https://en.wikipedia.org/wiki/MacGyver) (the tv-show hero). Your trapped in a labyrinth, and your mission (if you accept it) is to escape 
+after collecting all the items present on the mapp.
+You'll have to find and collect :
+
+    - bottle
+    - plastic tube
+    - syringe
+    - needle
+
+Once you have all of these items (green logo on the top of the labyrinth), go and see the guard. You win!!! 
+Watch out! If you forget a item on the mapp, the gard will not let you out!
+
+This have been made with python 3.6 and pygame 1.9.6
 
 
-Ce projet a été réalisé avec le langage Python (version 3.7) et le module Pygame depuis un environnement virtuel installé avec le gestionnaire de paquets PIP (package installer for python).
+Installation:
 
-[Voir le code source...](https://github.com/athd33/MacGyver-Openclassroom)
+    Open your terminal and follow me:
 
-A) Choix algorithmiques :
+    1) Download the project:
+    
+    git clone https://github.com/athd33/MacGyver-Openclassroom.git
 
-Le jeu se lance depuis le fichier main.py. Ce dernier contient l’initialisation du module Pygame ainsi que les boucles principales du jeu (affichage du menu, jeu en cours, menu de victoire et menu de défaite). 
-Au lancement du jeu, Pygame est initié et les différents modules créés sont importés. La configuration de la surface de Pygame est définie et 3 classes sont instanciées :
+    2) Open the project:
 
-a) La classe MappToDisplay :
+    cd MacGyver-Openclassroom
 
-Cette classe sert au rendu de la carte. Elle décompose le contenu du fichier mapp.txt et génère une liste de liste. L’indexation de chaque élément de la carte est réalisé, ils sont accessibles avec des index X et Y. 
+    3) Install the dependencies:
+    
+    pip3 install -r requirement.txt
+    
+    4) Play:
 
-b) La classe Player :
+    python3 main.py
 
-Cette classe prend en paramètre la classe MappToDisplay précédemment instanciée. Avec sa méthode init(), la classe Player récupère la position du joueur avec ses coordonnées X et Y. Sa méthode moveMac() prend en paramètre la touche directionnelle utilisée par le joueur. En fonction de la direction donnée, elle modifie la position du joueur et renvoie à la classe MappToDisplay les nouvelles coordonnées du personnage que cette dernière sera chargée de rendre à l’écran grâce à Pygame.
 
-c) La classe ObjectsItems :
+Code composition:
 
-Cette classe, à l’instar de la classe Player, prend en paramètre la classe MappToDisplay précédemment instanciée. Avec sa méthode getFreeCases() , elle créé une liste qui contient l’ensemble des positions libres sur la carte (non occupées par un mur ou personnage). Le module Random et sa méthode choice() sont utilisés pour générer depuis cette liste , une position aléatoire. 
-Enfin, sa méthode displayObject() attribue à chaque item du jeu, une position aléatoire qui sera retournée à la classe MappToDisplay pour l’affichage.
+    main.py : main programm file. 
+    constants.py: files containing all the constant variables (images, sounds, dimensions...2)
+    mapp.py: Classes created to render the mapp on screen
+    player.py: Class used to set the new position of the player on each keyboard command
+    items.py : Class created to set random positions for the objects on the mapp
+    mapp.txt : A text document representing the labyrinth mapp
+    folder /sounds : The wav files
+    folder /images : The images of the game
+    requirement.txt: The list of the dependencies needed to run
+    
 
-Nota : La classe ObjectsItems sert à placer de façon aléatoire, les item du jeu à chaque nouvelle partie.
+Game steps:
 
-Une fois ces classes instanciées, le menu se lance. Pygame affiche une image et les commandes disponibles (quitter, lancer le jeu, activer et désactiver le son). 
+    1) Display of the menu screen, press ENTER to play or Q to quit.
+    2) In game, display or the labyrinth. Objects have a random position each time you launch the game.
+    3) The player goes arround the mapp and get all the items. The loader image changes at each element catched!
+    4) The players exit the mapp when he gets to the guard:
+        
+        a) All objects are collected : Win page displayes , press Q to exit and go back to the main menu.
+        b) The player didn't find all the objects, Game Over page is displayed. Press Q to quit and go back to menu.
 
-Si je joueur appui sur la touche ENTRÉE, le menu se ferme, le jeu se lance et la carte s’affiche. La classe Loader est instanciée, elle affiche l’image d’un loader en haut de la carte. Quand le joueur récupère un item sur la carte, la classe Player indique à la classe Loader que le joueur a marqué 1 point supplémentaire. Il change alors d’image à afficher.
+Expected:
 
-Une fois que le joueur a récupéré l’ensemble des items (4 points), les conditions sont réunies pour qu’il sorte vainqueur. Au contact du gardien, le jeu s’arrête et la page de fin de jeu s’affiche. Le joueur peut quitter le programme avec la touche Q ou recommencer avec la touche ENTRÉE.
-
-Si le joueur n’a pas ses 4 points au contact du gardien, le jeu s’arrête. La fenêtre affiche le message de fin de partie (perdue),  Le joueur peut quitter le programme avec la touche Q ou recommencer avec la touche ENTRÉE.
+    Code droppend on Github
+    Use virtualenv to code
+    Respect PEP8
+    Use english
