@@ -29,7 +29,7 @@ This have been made with python 3.6 and pygame 1.9.6
     
         git clone https://github.com/athd33/MacGyver-Openclassroom.git
 
-    2) Than, open the project with :
+    2) Then, open the project with :
 
         cd MacGyver-Openclassroom
 
