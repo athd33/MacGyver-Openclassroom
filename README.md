@@ -6,19 +6,16 @@
 **Introduction :**
 This project is a 2D labyrinth game realised with Python3.6 and le Pygame module in his version 1.9.
 
-In this game, you are [MacGyver](https://en.wikipedia.org/wiki/MacGyver) (the tv-show hero). Your trapped in a labyrinth, and your mission (if you accept it) is to escape 
-after collecting all the items present on the mapp.
+In this game, you are [MacGyver](https://en.wikipedia.org/wiki/MacGyver) (the tv-show hero). Your trapped in a labyrinth, and your mission (if you accept it) is to escape after collecting all the items present on the mapp.
 You'll have to find and collect :
 
-    > - bottle
-    > - plastic tube
-    > - syringe
-    > - needle
+    > a bottle
+    > a plastic tube
+    > a syringe
+    > a needle
 
-Once you have all of these items (green logo on the top of the labyrinth), go and see the guard. You win!!! 
-Watch out! If you forget a item on the mapp, the gard will not let you out!
-
-This have been made with python 3.6 and pygame 1.9.6
+Once you have all of these items (see this green logo on the top of the labyrinth??), go and see the guard. You win!!! 
+Watch out! If you forget a item on the mapp, the gard won't let you out!
 
 
 **Installation:**
@@ -74,7 +71,8 @@ This have been made with python 3.6 and pygame 1.9.6
 
 **Expected:**
 
-    Code droppend on Github
-    Use virtualenv to code
-    Respect PEP8
     Use english
+    Use virtualenv to code
+    Drop the code on Github    
+    Respect the PEP8 conventions     
+    Create a standalone version
