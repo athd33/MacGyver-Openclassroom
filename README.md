@@ -4,7 +4,7 @@
 
 
 **Introduction :**
-This project is a 2D labyrinth game realised with Python3.6 and le Pygame module in his version 1.9.
+This project is a 2D labyrinth game realised from a Linux OS with Python3.6 and le Pygame module in his version 1.9.
 
 In this game, you are [MacGyver](https://en.wikipedia.org/wiki/MacGyver) (the tv-show hero). Your trapped in a labyrinth, and your mission (if you accept it) is to escape after collecting all the items present on the mapp.
 You'll have to find and collect :
@@ -18,19 +18,19 @@ Once you have all of these items (see this green logo on the top of the labyrint
 Watch out! If you forget a item on the mapp, the gard won't let you out!
 
 
-**Installation:**
+**Installation with LINUX:**
 
 **Open your terminal and follow me:**
 
-    1) To download the project run :
+    1) To download the project run in your terminal the following command :
     
         git clone https://github.com/athd33/MacGyver-Openclassroom.git
 
-    2) Then, open the project with :
+    2) Then, enter into the project with :
 
         cd MacGyver-Openclassroom
 
-    3) Now, run the command line to build the executable :
+    3) Now, run the this command line to build the executable :
 
         python3 ./setup.py build
 
