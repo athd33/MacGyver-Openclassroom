@@ -25,23 +25,23 @@ This have been made with python 3.6 and pygame 1.9.6
 
     Open your terminal and follow me:
 
-    - [ ]  Download the project:
+    > Download the project:
     
     git clone https://github.com/athd33/MacGyver-Openclassroom.git
 
-    2) - [ ] Open the project:
+    2) > Open the project:
 
     cd MacGyver-Openclassroom
 
-    - [] Run the command to build de executable :
+    3) > Run the command to build de executable :
 
     python3 ./setup.py build
 
-    4) [] Move in the created folders :
+    4) > Move in the created folders :
 
     cd build/exe.linux-x86_64-3.6/
 
-    5) [] Run the game :
+    5) > Run the game :
 
     ./main
 
