@@ -25,15 +25,15 @@ This have been made with python 3.6 and pygame 1.9.6
 
     Open your terminal and follow me:
 
-    1) [] Download the project:
+    1) - [ ] Download the project:
     
     git clone https://github.com/athd33/MacGyver-Openclassroom.git
 
-    2) [] Open the project:
+    2) - [ ] Open the project:
 
     cd MacGyver-Openclassroom
 
-    3) [] Run the command to build de executable :
+    3) - [] Run the command to build de executable :
 
     python3 ./setup.py build
 
