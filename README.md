@@ -1,6 +1,6 @@
                             
 
-**# MAC-GYVER: THE ESCAPE GAME**
+**MAC-GYVER: THE ESCAPE GAME**
 
 
 **Introduction :**
@@ -10,10 +10,10 @@ In this game, you are [MacGyver](https://en.wikipedia.org/wiki/MacGyver) (the tv
 after collecting all the items present on the mapp.
 You'll have to find and collect :
 
-    - bottle
-    - plastic tube
-    - syringe
-    - needle
+    > - bottle
+    > - plastic tube
+    > - syringe
+    > - needle
 
 Once you have all of these items (green logo on the top of the labyrinth), go and see the guard. You win!!! 
 Watch out! If you forget a item on the mapp, the gard will not let you out!
