@@ -1,4 +1,4 @@
-Introduction:
+**Introduction:**
 
 This project is a 2D labyrinth game realised with Python3.7 and le Pygame module in his version 1.9.
 
@@ -17,28 +17,28 @@ Watch out! If you forget a item on the mapp, the gard will not let you out!
 This have been made with python 3.6 and pygame 1.9.6
 
 
-Installation:
+**Installation:**
 
     Open your terminal and follow me:
 
-    1) Download the project:
+    1) > Download the project:
     
     git clone https://github.com/athd33/MacGyver-Openclassroom.git
 
-    2) Open the project:
+    2) > Open the project:
 
     cd MacGyver-Openclassroom
 
-    3) Install the dependencies:
+    3) > Install the dependencies:
     
     pip3 install -r requirement.txt
     
-    4) Play:
+    4) > Play:
 
     python3 main.py
 
 
-Code composition:
+**Code composition:**
 
     main.py : main programm file. 
     constants.py: files containing all the constant variables (images, sounds, dimensions...2)
@@ -51,7 +51,7 @@ Code composition:
     requirement.txt: The list of the dependencies needed to run
     
 
-Game steps:
+**Game steps:**
 
     1) Display of the menu screen, press ENTER to play or Q to quit.
     2) In game, display or the labyrinth. Objects have a random position each time you launch the game.
@@ -61,7 +61,7 @@ Game steps:
         a) All objects are collected : Win page displayes , press Q to exit and go back to the main menu.
         b) The player didn't find all the objects, Game Over page is displayed. Press Q to quit and go back to menu.
 
-Expected:
+**Expected:**
 
     Code droppend on Github
     Use virtualenv to code
