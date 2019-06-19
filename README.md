@@ -25,7 +25,7 @@ This have been made with python 3.6 and pygame 1.9.6
 
     Open your terminal and follow me:
 
-    > Download the project:
+> Download the project:
     
     git clone https://github.com/athd33/MacGyver-Openclassroom.git
 
