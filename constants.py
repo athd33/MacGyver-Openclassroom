@@ -20,8 +20,7 @@ pygame.mixer.init()
 menuMusic = pygame.mixer.Sound("./sounds/menuMusic.wav")
 grabSound = pygame.mixer.Sound("./sounds/grab.wav")
 inGameMusic = pygame.mixer.Sound("./sounds/inGame.wav")
-victoryMusic = pygame.mixer.Sound("./sounds/victorySound.wav")
-gameOverMusic = pygame.mixer.Sound("./sounds/gameOver.wav")
+
 
 commandQuitGame = arial_fonts.render("Press 'Q' for EXIT", True, white)
 commandEnterGame = arial_fonts.render("Press 'ENTER' to START", True, white)

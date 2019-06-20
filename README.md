@@ -26,7 +26,7 @@ Watch out! If you forget a item on the mapp, the gard won't let you out!
     
         git clone https://github.com/athd33/MacGyver-Openclassroom.git
 
-    2) Then, enter into the project with :
+    2) Then, enter into the project with this command :
 
         cd MacGyver-Openclassroom
 

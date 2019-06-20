@@ -77,7 +77,6 @@ while menu:  # first while used for menu display
             game = False
             pygame.display.flip()
             inGameMusic.stop()
-            victoryMusic.play()
             window.blit(winEndImage, (100, 100))
             window.blit(commandQuitGame, (150, 550))
             pygame.display.flip()
@@ -87,11 +86,9 @@ while menu:  # first while used for menu display
                 if event.type == pygame.QUIT:
                     exit()
                 if event.type == KEYDOWN and event.key == K_q:
-                    victoryMusic.stop()
                     macGyver.winGame = False
                     objects = False
                     menu = True
-
 
         while macGyver.looseGame:  # wining conditions all good
 
